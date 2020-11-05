@@ -4,6 +4,15 @@ import './index.css';
 import AuthorQuiz from './AuthorQuiz';
 import reportWebVitals from './reportWebVitals';
 
+const authors = [
+  {
+    name: 'Mark Twain',
+    imageUrl: 'images/authors/marktwain.jpg',
+    imageSource: 'Wikimedia Commons',
+    books: ['The Adventures of Huckleberry Finn']
+  }
+];
+
 ReactDOM.render(
   <React.StrictMode>
     <AuthorQuiz />

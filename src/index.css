@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.AddAuthorForm {
+  width: 80%;
+  margin: 50px 10%;
+}
+
+.AddAuthorForm__input {
+  margin-bottom: 20px;
+}
+
+.AddAuthorForm__input > label {
+  display: block;
+}

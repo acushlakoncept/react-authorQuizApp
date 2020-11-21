@@ -5,6 +5,7 @@ import "./index.css";
 import AuthorQuiz from "./AuthorQuiz";
 import reportWebVitals from "./reportWebVitals";
 import { shuffle, sample } from "underscore";
+import AddAuthorForm from './AddAuthorForm';
 
 const authors = [
   {
@@ -71,13 +72,6 @@ function onAnswerSelected(answer) {
   const isCorrect = state.turnData.author.books.some((book) => book === answer);
   state.highlight = isCorrect ? 'correct' : 'wrong';
   render();
-}
-
-function AddAuthorForm({match}) {
-  return <div>
-    <h1>Add Author</h1>
-    <p>{JSON.stringify(match)}</p>
-  </div>
 }
 
 function App() {

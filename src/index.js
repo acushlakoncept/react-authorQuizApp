@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter, Route } from 'react-router-dom';
 import "./index.css";
 import AuthorQuiz from "./AuthorQuiz";
 import reportWebVitals from "./reportWebVitals";
@@ -70,6 +71,10 @@ function onAnswerSelected(answer) {
   const isCorrect = state.turnData.author.books.some((book) => book === answer);
   state.highlight = isCorrect ? 'correct' : 'wrong';
   render();
+}
+
+function App() {
+  return  <AuthorQuiz {...state} onAnswerSelected={onAnswerSelected} />
 }
 
  function render() {

@@ -6,8 +6,16 @@ class AuthorForm extends React.Component {
     super(props);
     this.state = {
       name: "",
-      imageUrl: ""
+      imageUrl: "",
+      books: []
     };
+    this.onFieldChange = this.onFieldChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.onAddAuthor(this.state);
   }
 
   onFieldChange(event) {
@@ -18,25 +26,36 @@ class AuthorForm extends React.Component {
 
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <div className="AddAuthorForm__input">
           <label htmlFor="name">Name</label>
-          <input type="text" name="name" value={this.state.name} />
+          <input
+            type="text"
+            name="name"
+            value={this.state.name}
+            onChange={this.onFieldChange}
+          />
         </div>
         <div className="AddAuthorForm__input">
           <label htmlFor="imageUrl">Image URL</label>
-          <input type="text" name="imageUrl" value={this.state.imageUrl} />
+          <input
+            type="text"
+            name="imageUrl"
+            value={this.state.imageUrl}
+            onChange={this.onFieldChange}
+          />
         </div>
+        <input type="submit" value="Add" />
       </form>
     );
   }
 }
 
-export default function AddAuthorForm({ match }) {
+export default function AddAuthorForm({ match, onAddAuthor }) {
   return (
     <div className="AddAuthorForm">
       <h1>Add Author</h1>
-      <AuthorForm />
+      <AuthorForm onAddAuthor={onAddAuthor} />
     </div>
   );
 }

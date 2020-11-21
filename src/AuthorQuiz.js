@@ -59,8 +59,16 @@ Turn.prototype = {
   highlight: PropTypes.string.isRequired
 };
 
-function Continue() {
-  return <div></div>;
+function Continue({show, onContinue}) {
+  return (
+  <div className="row continue">
+    { show 
+    ? <div>
+      <button className="btn btn-primary btn-lg float-right" onClick={onContinue}>Continue</button>
+    </div> 
+    : null }
+  </div>
+  );
 }
 
 function Footer() {
@@ -76,12 +84,12 @@ function Footer() {
   );
 }
 
-function AuthorQuiz({ turnData, highlight, onAnswerSelected }) {
+function AuthorQuiz({ turnData, highlight, onAnswerSelected, onContinue }) {
   return (
     <div className="container-fluid">
       <Hero />
       <Turn {...turnData} highlight={highlight} onAnswerSelected={onAnswerSelected} />
-      <Continue />
+      <Continue show={highlight === 'correct'} onContinue={onContinue} />
       <Link to="/add">Add an Author</Link>
       <Footer />
     </div>
